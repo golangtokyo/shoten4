@@ -68,7 +68,7 @@ Goはゲーム開発でも全く問題ない言語であると言えます。
 
 筆者らが開発したゲームとして、
 「償いの時計@<fn>{tsugunai}」と「しあわせのあおいとり@<fn>{bluebird}」があります。
-Daigo氏@<fn>{daigo}およびZero氏@<fn>{zeroliu}との挙動開発です。
+Daigo氏@<fn>{daigo}およびZero氏@<fn>{zeroliu}との共同開発です。
 おかげさまである程度人気を博しており、
 ファミ通に掲載されたり@<fn>{tsugunai_famitsu}@<fn>{bluebird_famitsu}、
 有名実況者に実況されたりしました。
