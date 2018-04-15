@@ -409,7 +409,7 @@ func (h *Hello) Exec() {
 }
 //}
 
-どちらを利用しても"処理の差し替え"は可能ですが、@<code>{func}と@<code>{struct}+@<code>{interface}はどのように使い分ければいいのでしょうか?個人的な使い分けポイントは以下です。
+どちらを利用しても"処理の差し替え"は可能ですが、@<code>{func}と@<code>{struct}+@<code>{interface}はどのように使い分ければいいのでしょうか?個人的には以下を判断基準にしています。
 
  * 複数の@<code>{type}にまたがるような振る舞いであれば、@<code>{interface}を利用する。
  * 値を持つ@<code>{struct}が持つ振る舞いであれば、@<code>{interface}を利用する。
