@@ -466,7 +466,7 @@ func NewHelloFunc() DoFunc {
 
 一見問題ないように見えますが、コードは時と共に要件が変化していくものです。1年後、@<code>{Do()}の引数に@<code>{struct}を指定したくなる可能性もあります。その際、既存の@<code>{DoFunc}を利用しているコードに影響を与えることは避けたいでしょう。この問題は@<code>{interface}を定義することで解決できます。
 
-具体的には、@<code>{Do()}の引数に@<code>{func}ではなく、@<code>{DoInterface}を指定するように変更します。そして、@<code>{DoFunc}には@<code>{DoInterface.Call()}を実装します。@<code>{DoFunc.Call()}は{DoFunc}をそのまま実行するだけです。
+具体的には、@<code>{Do()}の引数に@<code>{func}ではなく、@<code>{DoInterface}を指定するように変更します。そして、@<code>{DoFunc}には@<code>{DoInterface.Call()}を実装します。@<code>{DoFunc.Call()}は@<code>{DoFunc}をそのまま実行するだけです。
 //list[pospome_list22][引数をfuncからinterfaceに変更]{
 package main
 
