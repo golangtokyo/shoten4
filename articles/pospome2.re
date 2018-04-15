@@ -525,7 +525,7 @@ func (d DoStruct) Call() {
 //list[pospome_list24][funcにメソッドを定義]{
 type Xxx func()
 
-func (x Xxx) Do {
+func (x Xxx) Do() {
 }
 //}
 
