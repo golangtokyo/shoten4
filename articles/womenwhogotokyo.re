@@ -1,8 +1,10 @@
 = Women Who Go TokyoはGopherを待っています
-== 1. Women Who Goとわたしたちのこれまでの活動について
-こんにちは。Women Who Go Tokyoの運営スタッフの@akane_256@<fn>{akane_256_fn1}です。
+== Women Who Goとわたしたちのこれまでの活動について
+//lead{
+こんにちは。Women Who Go Tokyoの運営スタッフの @akane_256@<fn>{akane_256_fn1} です。
 普段は表参道のIT企業で、Webサイトの開発・運用に携わっています。
 Women Who Goというコミュニティの歴史とわたしたちのこれまでの活動についてご紹介します。
+//}
 
 //footnote[akane_256_fn1][@<href>{https://twitter.com/akane_256}]
 
@@ -11,7 +13,7 @@ Women Who Goは、2014年にサンフランシスコで、女性・ジェンダ�
 Women Who Goの活動の目的は、多くの女性やジェンダーマイノリティの方がGoのコミュニティに参加できるようにすることです。技術者のコミュニティは、最初は一人だと参加しづらいという声がしばしば聞かれますが、Women Who Goでは、その場で仲間を見つけることができる機会を提供したいと考えています。また、一人だとどうすれば良いかわからないことを質問しあうなど、協力しあいながら楽しくGoについて学んでいきます。
 Women Who Goとして実施する活動の内容は、各国で自由で、ベルリンでは「Go In Action」の著者を招いてワークショップを行ったり、シカゴではGoの新バージョンがリリースされた際にリリースパーティを行ったりしています。そして、そのイベントの多くは無料で開催されています。
 
-他国の活動については、@womenwhogo@<fn>{womenwhogo_fn1}のTwitterアカウントから見ることができます。
+他国の活動については、 @womenwhogo@<fn>{womenwhogo_fn1} のTwitterアカウントから見ることができます。
 
 //footnote[womenwhogo_fn1][@<href>{https://twitter.com/womenwhogo}]
 
@@ -31,13 +33,13 @@ https://talks.godoc.org/github.com/davecheney/introduction-to-go/introduction-to
 //footnote[introduction-to-go_fn1][@<href>{https://talks.godoc.org/github.com/davecheney/introduction-to-go/introduction-to-go.slide#1}]
 
 ==== 2. GCP Global Meetupの開催
-2017年6月には、GCPUG Tokyo(Google Cloud Platform User Group)とイベントを共催しました。GDG Cloud Londonからは、女性エンジニアの@chibichibibr@<fn>{chibichibibr_fn1}が来日し、テクノロジー業界でのダイバーシティについてプレゼンテーションをしました。
+2017年6月には、GCPUG Tokyo(Google Cloud Platform User Group)とイベントを共催しました。GDG Cloud Londonからは、女性エンジニアの @chibichibibr@<fn>{chibichibibr_fn1} が来日し、テクノロジー業界でのダイバーシティについてプレゼンテーションをしました。
 Women Who Goも共催コミュニティとして、私が、GCP x Goをテーマに、Cloud Vision APIとGoを使って画像コンテンツ分析をするプレゼンテーションをしました。
 
 //footnote[chibichibibr_fn1][@<href>{https://twitter.com/chibichibibr}]
 
 ==== 3. GDG Devfest Tokyoへの参加
-2017年10月には、GDG Devfest Tokyo 2017に、初めてWomen Who Go Tokyoとして参加をしました。一緒にスタッフとして活動している@micchiebear@<fn>{micchiebear_fn1}さんと@mom0tomo@<fn>{mom0tomo_fn1}さんが、初めてGoを学んでからプロダクトに導入するまでの経験についてプレゼンテーションをしました。
+2017年10月には、GDG Devfest Tokyo 2017に、初めてWomen Who Go Tokyoとして参加をしました。一緒にスタッフとして活動している @micchiebear@<fn>{micchiebear_fn1} さんと @mom0tomo@<fn>{mom0tomo_fn1} さんが、初めてGoを学んでからプロダクトに導入するまでの経験についてプレゼンテーションをしました。
 その際のスライドについては、こちらのURLからご覧いただけます。
 
 https://speakerdeck.com/mom0tomo/gotu-ran-ri-ji@<fn>{gotu-ran-ri-ji_fn1}
@@ -62,18 +64,23 @@ func main() {
 }
 //}
 
-Women Who Go Tokyoのその他の活動については、@wwg_tokyo@<fn>{wwg_tokyo_fn1}のTwitterアカウントをのぞいてみて下さい。もし少しでもご興味があれば、ぜひ気軽に足を運んでいただけるととても嬉しいです。
+Women Who Go Tokyoのその他の活動については、@wwg_tokyo @<fn>{wwg_tokyo_fn1} のTwitterアカウントをのぞいてみて下さい。もし少しでもご興味があれば、ぜひ気軽に足を運んでいただけるととても嬉しいです。
 
 //footnote[wwg_tokyo_fn1][@<href>{https://twitter.com/wwg_tokyo}]
 
 === 東京以外の活動について
 現在日本にあるWomen Who Goコミュニティは東京だけですが、東京以外でも支部を新設することができます。下記サイトのルールをもとに、Women Who Goの本部宛にご連絡ください。
 不明点などあれば、わたしたちWomen Who Go Tokyoでもサポートいたします。
-https://github.com/womenwhogo/wikis/blob/master/starting-a-chapter.md
 
-== 2. はじめてのGo
-Women Who Go Tokyoの@micchiebear@<fn>{micchiebear_fn1}です。
+https://github.com/womenwhogo/wikis/blob/master/starting-a-chapter.md@<fn>{chapter_fn1}
+
+//footnote[chapter_fn1][@<href>{https://github.com/womenwhogo/wikis/blob/master/starting-a-chapter.md}]
+
+== はじめてのGo
+//lead{
+Women Who Go Tokyoの@micchiebear @<fn>{micchiebear_fn1} です。
 普段のシゴトは、株式会社リブセンスでJavaScript, node.jsを使うことが多いのですが、ちょいちょいGoを織り交ぜるようと暗躍しています。
+//}
 
 //footnote[micchiebear_fn1][@<href>{https://twitter.com/micchiebear}]
 
@@ -86,15 +93,15 @@ Goの輝き:
 
  * 文法の正解パターンが少ないので迷いにくい。
  * Go本体はGoで書かれているので、Go本体がリファレンスになっている。そして読みやすい。
- * @<code>{gofmt}, @<code>{golint}, @<code>{goimportst}, @<code>{go vet}といった標準のツールがあり、Goの正解に自然と導いてくれる。
+ * @<code>{gofmt} , @<code>{golint} , @<code>{goimportst} , @<code>{go vet} といった標準のツールがあり、Goの正解に自然と導いてくれる。
  * 標準ライブラリが必要最低限揃っているので、多くのモジュールがいつの間にか読み込まれているといったことが少ない。
  * マルチプラットフォーム！
- * 後述の@<code>{Playground}最高。
+ * 後述の @<code>{Playground} 最高。
 
 そして、キャラクターのGopherの~~キモ~~かわいらしさも魅力のひとつです。
 
 === Goの演習
-@<code>{Playground}を利用することで、すぐにGoを書いて試すことができます。
+@<code>{Playground} を利用することで、すぐにGoを書いて試すことができます。
 難しい環境設定は必要ありません。
 アクセスしたばかりのときは、下記のように表示されています。
 
@@ -110,7 +117,7 @@ func main() {
 }
 //}
 
-ここで、@<code>{import}全体と、@<code>{main}の中に書いてある@<code>{fmt.Println("Hello, playground")}を消してしまいます。
+ここで、 @<code>{import} 全体と、 @<code>{main} の中に書いてある @<code>{fmt.Println("Hello, playground")} を消してしまいます。
 スッキリしてしまいました。
 
 //list[micchie_list2][main関数のみにする]{
@@ -126,7 +133,7 @@ Women Who Go Tokyoでは、2年前に「じゃんけんゲーム」をみんな�
  * シンプルにロジックを考えられる。
  * テストを書きやすい。
 
-これから、じゃんけんのロジックからテストまでを@<code>{Playground}で書いていきます。
+これから、じゃんけんのロジックからテストまでを @<code>{Playground} で書いていきます。
 
 ==== 1. はじめに
 まず、じゃんけんの手は下記の通りです。
@@ -137,11 +144,11 @@ Women Who Go Tokyoでは、2年前に「じゃんけんゲーム」をみんな�
 
 たとえば、
 
- * グーを@<code>{1}
- * チョキを@<code>{2}
- * パーを@<code>{3}
+ * グーを @<code>{1}
+ * チョキを @<code>{2}
+ * パーを @<code>{3}
 
-と数字で見立てると、下記のような計算式で勝ち負けを判別することができます。(`@<code>{%}は余りです)
+と数字で見立てると、下記のような計算式で勝ち負けを判別することができます。( @<code>{%} は余りです)
 
 //list[micchie_list3][じゃんけんのロジック]{
 [結果] = ([自分] - [対戦相手] + 3) % 3
@@ -149,9 +156,9 @@ Women Who Go Tokyoでは、2年前に「じゃんけんゲーム」をみんな�
 
 この結果が、
 
- * @<code>{0}だったら引き分け
- * @<code>{1}だったら負け
- * @<code>{2}だったら勝ち
+ * @<code>{0} だったら引き分け
+ * @<code>{1} だったら負け
+ * @<code>{2} だったら勝ち
 
 となります。
 これを実際にGoで書いていこうと思います。
@@ -160,7 +167,7 @@ Women Who Go Tokyoでは、2年前に「じゃんけんゲーム」をみんな�
 じゃんけんの手や結果はわかりやすい名前をつけたいものです。
 今回は特に、数字で計算をさせようとしているのでなおさらです。
 
-よって下記のコードを@<code>{package main}の下に書きます。
+よって下記のコードを @<code>{package main} の下に書きます。
 
 //list[micchie_list4][じゃんけんの手と結果を定義する]{
 type Hand int
@@ -182,7 +189,7 @@ const (
 
 goは他の言語にあるような列挙型を持っていないため、定数を使います。
 最初にtypeで、手(Hand)と結果(Result)を定義し、定数で値を作ります。
-ここで出てくる@<code>{iota}は、定数で利用される、型なしの連続する整数定数で、最初は@<code>{0}で初期化され、1つずつインクリメントされます。2行目移行の@<code>{iota}は省略が可能です。
+ここで出てくる @<code>{iota} は、定数で利用される、型なしの連続する整数定数で、最初は @<code>{0} で初期化され、1つずつインクリメントされます。2行目移行の @<code>{iota} は省略が可能です。
 
 ==== 3. じゃんけんロジックを書く
 mainの下にじゃんけんの処理を1つの関数として書きます。
@@ -222,18 +229,20 @@ you: 1, challenger: 2, Result: you 2...
 Program exited.
 //}
 
-これは、先程@<code>{const}で定義しているので、@<code>{you: Rock, challenger: Scissors, Result: you Win...}と同義です。
+これは、先程 @<code>{const} で定義しているので、 @<code>{you: Rock, challenger: Scissors, Result: you Win...} と同義です。
 この演習では、そのまま数字で出力されてしまいますが、文字列に置き換えて表示させることも可能です。
 
-@<code>{Playground}は、Shareボタンを押下することでソースコードのURLが発行でき、簡単に他の人に共有することができます。
-この演習プログラムのURLは、@<href>{https://play.golang.org/p/zyXc7WsyQuC}です。
+@<code>{Playground} は、Shareボタンを押下することでソースコードのURLが発行でき、簡単に他の人に共有することができます。
+この演習プログラムのURLは、こちら@<fn>{playground_fn1} です。
+
+//footnote[playground_fn1][@<href>{https://play.golang.org/p/zyXc7WsyQuC}]
 
 ==== 5. テストを書く
-@<code>{Playground}はテストを書くこともできます。
+@<code>{Playground} はテストを書くこともできます。
 ポイントは2つです。
 
  * main関数がないこと。
- * @<code>{func Test[関数名](t *testing.T)`}を用意すること。
+ * @<code>{func Test[関数名](t *testing.T)`} を用意すること。
 
 じゃんけんのテストを書いてみましょう。
 Goのテストは構造体に予め期待結果の組み合わせを書いておき、ループで回しながらテストを行う手法(テーブルドリブンテスト)が推奨されています。
@@ -265,7 +274,7 @@ func TestJanken(t *testing.T) {
 }
 //}
 
-先ほどのプログラムの一番下にこの関数を追記し、@<code>{main}関数を削除すれば@<code>{Playground}でのテストの完成です。
+先ほどのプログラムの一番下にこの関数を追記し、 @<code>{main}関数を削除すれば@<code>{Playground} でのテストの完成です。
 Runボタンを押下して実行してみると、テストが実行され、下記のように表示されるはずです。
 
 //list[micchie_list9][じゃんけんのテスト結果]{
@@ -276,17 +285,47 @@ PASS
 Program exited.
 //}
 
-このテストプログラムのURLは、@<href>{https://play.golang.org/p/NvHvqUvb2xV}です。
-さて、@<code>{Playground}を利用したGoの演習はここまでとなります。
+このテストプログラムのURLは、こちら@<fn>{playground_fn2} です。
+さて、 @<code>{Playground} を利用したGoの演習はここまでとなります。
 
-== 3. わたしたちの目指す姿と今後の展望について
+//footnote[playground_fn2][@<href>{https://play.golang.org/p/NvHvqUvb2xV}]
+
+== わたしたちの目指す姿と今後の展望について
+//lead{
 Women Who Go Tokyoの@mom0tomo@<fn>{mom0tomo_fn1}です。
 普段は株式会社リブセンスのサーバサイドエンジニアとしてRuby on Railsを使って不動産サービスを開発、運用しています。
+//}
 
 //footnote[mom0tomo_fn1][@<href>{https://twitter.com/mom0tomo}]
 
 Women Who Go Tokyoは、Goに興味があり、学びたいと思っている女性が集まるコミュニティです。
 本章ではWomen Who Go Tokyoの目指す姿と今後の展望についてお話しします。
+
+=== Goの「Code of Conduct」について
+Goのコミュニティには「Code of Conduct(行動指針)」@<fn>{conduct_fn1}があります。
+これはさまざまなバックグラウンドを持つGopherが効率的・生産的かつ礼節を持って議論できるよう定められているものです。
+
+//footnote[conduct_fn1][@<href>{https://golang.org/conduct}]
+
+ここでは「Gopher Value(Go コミュニティの目指すべき価値観)」として6つの項目が挙げられています。
+
+  * 友好的で、人々を温かく迎え入れること
+  * 辛抱強くあること
+    * コミュニケーションスタイルは人や文化ごとに違い、また全ての人が自国語を使っているわけではないということに留意する。
+  * 思慮深くあること
+    * 言葉遣いに気をつけ、コメントする前に今一度内容を振り返る。
+  * 他人に対して敬意を持つこと
+    * とりわけ、意見の違いを尊重する。
+  * 寛大であること
+    * 他の人の意見に真摯に向き合い、粗探しをしない。意義がある場合も、その人の主張を理解しようと努める。
+  * 自滅的な行動(下記)を慎むこと
+    * 議題からの脱線: 議題と別のことを話したくなったときは、話し合いを新たに設ける。
+    * 非生産的な批判: 現状を単に非難するのではなく、何かしら良い方に進められるような提案をする。
+    * 不機嫌で皮肉屋な態度: 非生産的、断片的、トゲのあるコメントはしない。
+    * 慎重に扱うべき問題や攻撃性を含む問題についての議論: 無用な対立を生むことは避ける。
+    * 無自覚な差別: 短すぎる陳腐な言葉や、他の人や団体に対する敵対的・侮蔑的な態度や言葉は使わない。
+
+わたしたちWomen Who Go Tokyoも、このCode of Conductに基づいて活動しています。
 
 === なぜ「女性」コミュニティなのか？
 技術の世界はまだまだ男性がマジョリティです。
@@ -343,4 +382,4 @@ Women Who Go Tokyoは、尊敬すべきエンジニアの方々のサポート�
 Women Who Go Tokyoは、もっと多くの方々と一緒にGoを学んでいきたいと考えています。Goをさわってみたい方ならどなたでも大歓迎です！
 Macだけではなく、Windows、Ubuntu環境も用意して、環境構築で躓いたときにはいつでもサポートできるようにしています。
 ぜひ遊びに来てください。わたしたちはGopher仲間を待っています。
-そして、一緒に活動を盛り上げてくださる方を募集しています。少しでもご興味がある方は、ぜひ@wwg_tokyo@<fn>{wwg_tokyo_fn1}のTwitterアカウントまでご連絡ください。
+そして、一緒に活動を盛り上げてくださる方を募集しています。少しでもご興味がある方は、ぜひ @wwg_tokyo@<fn>{wwg_tokyo_fn1} のTwitterアカウントまでご連絡ください。
