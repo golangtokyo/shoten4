@@ -26,9 +26,7 @@ Women Who Go Tokyoは、2016年6月に日本で初めてのWomen Who Goのコミ
 ==== 1. Goコントリビュータを講師に招いてワークショップ
 2016年12月には、GoコントリビュータのDave Cheney氏を招いてワークショップを実施しました。Goの魅力や、基本構文など基礎の部分から、高度な構文やテストコードについて、1日かけて学びました。
 日本語ではありませんが、Goを作っている方から直接プレゼンテーションを聞くことができました。
-その際のスライドについては、こちらのURLからご覧いただけます。
-
-https://talks.godoc.org/github.com/davecheney/introduction-to-go/introduction-to-go.slide#1@<fn>{introduction-to-go_fn1}
+その際のスライドについては、こちら@<fn>{introduction-to-go_fn1}からご覧いただけます。
 
 //footnote[introduction-to-go_fn1][@<href>{https://talks.godoc.org/github.com/davecheney/introduction-to-go/introduction-to-go.slide#1}]
 
@@ -40,9 +38,7 @@ Women Who Goも共催コミュニティとして、私が、GCP x Goをテーマ
 
 ==== 3. GDG Devfest Tokyoへの参加
 2017年10月には、GDG Devfest Tokyo 2017に、初めてWomen Who Go Tokyoとして参加をしました。一緒にスタッフとして活動している @micchiebear@<fn>{micchiebear_fn1} さんと @mom0tomo@<fn>{mom0tomo_fn1} さんが、初めてGoを学んでからプロダクトに導入するまでの経験についてプレゼンテーションをしました。
-その際のスライドについては、こちらのURLからご覧いただけます。
-
-https://speakerdeck.com/mom0tomo/gotu-ran-ri-ji@<fn>{gotu-ran-ri-ji_fn1}
+その際のスライドについては、こちら@<fn>{gotu-ran-ri-ji_fn1}からご覧いただけます。
 
 //footnote[gotu-ran-ri-ji_fn1][@<href>{https://speakerdeck.com/mom0tomo/gotu-ran-ri-ji}]
 
@@ -70,22 +66,20 @@ Women Who Go Tokyoのその他の活動については、@wwg_tokyo @<fn>{wwg_to
 
 === 東京以外の活動について
 現在日本にあるWomen Who Goコミュニティは東京だけですが、東京以外でも支部を新設することができます。下記サイトのルールをもとに、Women Who Goの本部宛にご連絡ください。
-不明点などあれば、わたしたちWomen Who Go Tokyoでもサポートいたします。
-
-https://github.com/womenwhogo/wikis/blob/master/starting-a-chapter.md@<fn>{chapter_fn1}
+不明点などあれば、わたしたちWomen Who Go Tokyoでもサポート@<fn>{chapter_fn1}いたします。
 
 //footnote[chapter_fn1][@<href>{https://github.com/womenwhogo/wikis/blob/master/starting-a-chapter.md}]
 
 == はじめてのGo
 //lead{
 Women Who Go Tokyoの@micchiebear @<fn>{micchiebear_fn1} です。
-普段のシゴトは、株式会社リブセンスでJavaScript, node.jsを使うことが多いのですが、ちょいちょいGoを織り交ぜるようと暗躍しています。
-//}
+普段のシゴトは、株式会社リブセンスでなんでも屋をしていますが、ちょいちょいGoを織り交ぜていこうと暗躍しています。
 
 //footnote[micchiebear_fn1][@<href>{https://twitter.com/micchiebear}]
 
 Women Who Go TokyoはGoに興味がある女性とジェンダーマイノリティの方のためのコミュニティで、Goを書くのがはじめて！という方でも気楽に来ていただけるような会を目指しています。
 よって本章では、はじめてGoを学ぶヒトに向けたパッションを書き綴っていきます。
+//}
 
 === Goの魅力ってなんだろう？
 プログラミングの初学者であればあるほど、Goの魅力が輝きます。
@@ -93,12 +87,16 @@ Goの輝き:
 
  * 文法の正解パターンが少ないので迷いにくい。
  * Go本体はGoで書かれているので、Go本体がリファレンスになっている。そして読みやすい。
- * @<code>{gofmt} , @<code>{golint} , @<code>{goimportst} , @<code>{go vet} といった標準のツールがあり、Goの正解に自然と導いてくれる。
+ * Goはコードを静的解析してくれるツールが豊富であるため、ちょっとしたコーディングのミスが防げる。
+  * @<code>{gofmt}: コードをフォーマットしてくれる。
+  * @<code>{golint}: Goのコーディングスタイルに合わない箇所を指摘してくれる。
+  * @<code>{goimports}: 参照しているパッケージを自動で追加してくれる。
+  * @<code>{go vet}: コンパイルでは見つけられないようなエラーの可能性があるものを指摘してくれる。
  * 標準ライブラリが必要最低限揃っているので、多くのモジュールがいつの間にか読み込まれているといったことが少ない。
  * マルチプラットフォーム！
  * 後述の @<code>{Playground} 最高。
 
-そして、キャラクターのGopherの~~キモ~~かわいらしさも魅力のひとつです。
+そして、キャラクターのGopherのかわいらしさも魅力のひとつです。
 
 === Goの演習
 @<code>{Playground} を利用することで、すぐにGoを書いて試すことができます。
@@ -128,10 +126,7 @@ func main() {
 //}
 
 Women Who Go Tokyoでは、2年前に「じゃんけんゲーム」をみんなで作りました。
-じゃんけんは、下記の理由により、ちょっとしたプログラミングの勉強にちょうど良いのです。
-
- * シンプルにロジックを考えられる。
- * テストを書きやすい。
+じゃんけんは、仕様がシンプルでロジックが複雑になりにくく、そしてテストパターンを考えやすいため、ちょっとしたプログラミングの勉強にちょうど良いのです。
 
 これから、じゃんけんのロジックからテストまでを @<code>{Playground} で書いていきます。
 
@@ -199,7 +194,7 @@ mainの下にじゃんけんの処理を1つの関数として書きます。
  * 自分: @<code>{you}
  * 対戦相手: @<code>{challenger}
 
-returnは、自分から見たじゃんけんの結果を返却します。
+戻り値としては、自分から見たじゃんけんの結果を返却します。
 
 //list[micchie_list5][じゃんけんのロジック]{
 func janken(you, challenger Hand) Result {
