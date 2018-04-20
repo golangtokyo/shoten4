@@ -585,7 +585,7 @@ func (c CalcTotalScore) WithValidation(userScore int) (totalScore int) {
 
  * 引数を型で明示する
  * ロジックの差し替え
- * interfaceを提供することによる実装選択肢の確保
+ * @<code>{interface}を提供することによる実装選択肢の確保
  * メソッドを利用した特定処理の差し込み
 
 頭の片隅にしまっておくと、いつか役に立つかも知れませんね。
