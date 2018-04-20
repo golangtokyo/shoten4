@@ -219,7 +219,7 @@ func Do(f func()) {
 }
 //}
 
-@<code>{func}の定義方法は複数存在します。以下のように無名関数として@<code>{func}を定義する方法です。
+@<code>{func}の定義方法は複数存在します。次のように無名関数として@<code>{func}を定義する方法です。
 //list[pospome_list12][無名関数としてfuncを定義する]{
 package main
 
