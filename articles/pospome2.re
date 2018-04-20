@@ -10,7 +10,7 @@
 GopherWalkerの内容と重複する部分もありますが、@<code>{func}という "処理" を表現するものならではの実装パターンになります。
 
 == func は値である
-Goでは、@<code>{func}を値として扱うことができます。以下は@<code>{func}である@<code>{EchoName()}を値として変数@<code>{e}に代入し、実行する例です。
+Goでは、@<code>{func}を値として扱うことができます。次の例では@<code>{func}である@<code>{EchoName()}を値として変数@<code>{e}に代入し、実行しています。
 //list[pospome_list1][EchoName() を値として変数eに代入し、実行する例]{
 package main
 
@@ -46,7 +46,7 @@ func Do(f func()) func() {
 }
 //}
 
-引数に@<code>{func}を指定する実装はとても便利です。以下のように特定の@<code>{func}を外部から指定し、任意の処理を実行させることができます。
+引数に@<code>{func}を指定する実装はとても便利です。次のように特定の@<code>{func}を外部から指定し、任意の処理を実行させることができます。
 //list[pospome_list3][特定のfuncを外部から指定し、任意の処理を実行させる例]{
 package main
 
@@ -96,7 +96,7 @@ type MyEchoName func(id int) (int, error)
 === キャスト
 型を満たす@<code>{func}はキャストすることができます。
 
-以下の例では@<code>{EchoName()}を@<code>{func()}から@<code>{MyEchoName}へキャストしています。型が@<code>{func()}から@<code>{MyEchoName}へ変わっただけで挙動に変化はありません。
+次の例では@<code>{EchoName()}を@<code>{func()}から@<code>{MyEchoName}へキャストしています。型が@<code>{func()}から@<code>{MyEchoName}へ変わっただけで挙動に変化はありません。
 //list[pospome_list6][funcのキャスト]{
 package main
 
@@ -116,7 +116,7 @@ func EchoName() {
 //}
 
 === メソッド定義
-@<code>{func}に@<code>{type}を用いることでメソッドを定義することができます。以下は@<code>{MyEchoName}に@<code>{DoSomething()}というメソッドを定義してます。
+@<code>{func}に@<code>{type}を用いることでメソッドを定義することができます。次の例では@<code>{MyEchoName}に@<code>{DoSomething()}というメソッドを定義してます。
 //list[pospome_list7][funcに対するメソッド定義]{
 package main
 
@@ -142,7 +142,7 @@ func EchoName() {
 @<code>{func}にメソッドを定義できるのって何か不思議だなーと思うのは、私だけでしょうか・・・?
 
 === interfaceを満たす
-メソッドを定義できるのであれば、当然@<code>{interface}を満たすことができます。以下は@<code>{MyEchoName}が@<code>{XxxInterface}を満たしている実装です。
+メソッドを定義できるのであれば、当然@<code>{interface}を満たすことができます。次は@<code>{MyEchoName}が@<code>{XxxInterface}を満たしている実装です。
 //list[pospome_list8][funcのメソッドがinterfaceを満たす]{
 package main
 
@@ -186,7 +186,7 @@ func Do() {
 }
 //}
 
-この場合、以下のように@<code>{if}を利用して解決することができます。
+この場合、次のように@<code>{if}を利用して解決することができます。
 //list[pospome_list10][一部だけ処理の流れが違うケースに対してifで解決する]{
 func Do() {
 	//前半の処理は常に同じ
@@ -245,7 +245,7 @@ func Do(f func()) {
 
 このコードには"具体的に何の処理なのかが分かりづらい"という問題があります。無名関数は文字通り "無名" なので、具体的に何の処理なのかを明示することができません。あくまで処理内容がコードとして記載されているだけです。
 
-これは無名関数を通常の関数として定義することで解決することができます。以下は無名関数の実装を@<code>{EchoName()}として定義しています。
+これは無名関数を通常の関数として定義することで解決することができます。次の例は無名関数の実装を@<code>{EchoName()}として定義しています。
 //list[pospome_list13][無名関数を通常の関数として定義する]{
 package main
 
@@ -274,7 +274,7 @@ func EchoName() {
 
 ちなみに、無名関数内の処理が単純で自明なものであれば、無名関数として定義しても問題ありません。単純で自明なものであるかどうかの基準はしっかりと考える必要があります。
 
-これで解決したように見えますが、まだ1つだけ問題が残っています。それは"引数に何を指定するか分かりづらい" という点です。以下の@<code>{Do()}の引数は@<code>{func()}です。
+これで解決したように見えますが、まだ1つだけ問題が残っています。それは"引数に何を指定するか分かりづらい" という点です。次の例では@<code>{Do()}の引数は@<code>{func()}です。
 //list[pospome_list14][引数がfuncに何を指定するか分かりづらい]{
 func Do(f func()) {
 	//前半の処理はいつも同じ
@@ -288,7 +288,7 @@ func Do(f func()) {
 
 @<code>{func()}には具体的には何を指定すればいいのでしょうか?どこかに定義されている関数を指定するのでしょうか?それとも無名関数で実装するのでしょうか?もしどこかに定義されている関数を指定する場合、それはどの関数なのでしょうか?この問題は@<code>{func}に@<code>{type}を用いることで解決することができます。
 
-以下は@<code>{Do()}の引数を@<code>{func()}から@<code>{EchoName}に変更した実装です。
+次の例は@<code>{Do()}の引数を@<code>{func()}から@<code>{EchoName}に変更しています。
 //list[pospome_list15][特定のfuncを外部から指定し、任意の処理を実行させる例]{
 package main
 
@@ -327,13 +327,13 @@ func NewEchoSomebody() EchoName {
 }
 //}
 
-@<code>{EchoName}を定義し、それを生成する@<code>{NewEchoPospome()},@<code>{NewEchoSomebody()}を実装することで以下が明示的に表現できます。
+@<code>{EchoName}を定義し、それを生成する@<code>{NewEchoPospome()},@<code>{NewEchoSomebody()}を実装することで次の項目が明示的に表現できます。
 
  * @<code>{Do()}に指定する引数が@<code>{EchoName}であること
  * @<code>{EchoName}には Pospome実装とSomebody実装の2つのみ提供されていること
  * 提供されている実装以外の実装が必要な場合、新規実装しなければいけないこと
 
-例として挙げたコードは@<code>{Do()},@<code>{EchoName}のように比較的抽象的だったので、有効性がイメージできないかもしれませんが、以下のように具体的なロジックを表現する場合、単なる@<code>{func()}という定義よりも分かりやすくなるでしょう。
+例として挙げたコードは@<code>{Do()},@<code>{EchoName}のように比較的抽象的だったので、有効性がイメージできないかもしれませんが、次のように具体的なロジックを表現する場合、単なる@<code>{func()}という定義よりも分かりやすくなるでしょう。
 //list[pospome_list16][ユーザーのスコア算出ロジックを切り替える例]{
 type UserScoreLogic func(userScore int) (totalScore int)
 
@@ -357,7 +357,7 @@ func Do(f UserScoreLogic) {
 
 前節でも言及したように、@<code>{func}はそれ自体がGoにおけるプリミティブな定義なので、@<code>{func}を引数に指定することによって任意の処理を実行させることができます。
 
-例えば、以下の実装の場合、@<code>{Do()}の引数である@<code>{DoFunc}を満たす値を指定することで、任意の処理を実行させることができます。
+例えば、次の実装の場合、@<code>{Do()}の引数である@<code>{DoFunc}を満たす値を指定することで、任意の処理を実行させることができます。
 //list[pospome_list17][funcを引数に指定することによって任意の処理を実行させる例]{
 package main
 
@@ -381,7 +381,7 @@ func NewHelloFunc() DoFunc {
 }
 //}
 
-こういった "処理の差し替え" は、@<code>{interface}を利用することでも実現できます。以下は@<code>{struct}+@<code>{interface}の組み合わせの例です。
+こういった "処理の差し替え" は、@<code>{interface}を利用することでも実現できます。次の例は@<code>{struct}+@<code>{interface}を組み合わせたものです。
 //list[pospome_list18][struct+interfaceの例]{
 package main
 
@@ -415,7 +415,7 @@ func (h *Hello) Exec() {
 type Hello int
 //}
 
-@<code>{func}を利用しても、@<code>{interface}を利用しても "処理の差し替え" は可能です。では、@<code>{func}と@<code>{interface}はどのように使い分ければいいのでしょうか?個人的には以下を判断基準にしています。
+@<code>{func}を利用しても、@<code>{interface}を利用しても "処理の差し替え" は可能です。では、@<code>{func}と@<code>{interface}はどのように使い分ければいいのでしょうか?個人的には次の基準で判断しています。
 
  * @<code>{interface}を実装する対象のtypeが機能しないのであれば、@<code>{func}を利用する。
  * @<code>{interface}を実装する対象のtypeが機能するのであれば、@<code>{interface}を利用する。
@@ -433,7 +433,7 @@ type DBFunc interface {
 }
 //}
 
-これは以下のように@<code>{func}を束ねる@<code>{struct}を用意することで解決できます。
+これは次のように@<code>{func}を束ねる@<code>{struct}を用意することで解決できます。
 //list[pospome_list20][funcを束ねるstructを用意する]{
 type DBFunc struct {
 	Begin Begin
@@ -452,7 +452,7 @@ type Rollback func()
 === interfaceを提供することによる実装選択肢の確保
 前節では "処理の差し替え" を@<code>{func}によって実現するという例を紹介しました。しかし、@<code>{func}によって "処理の差し替え" を実現し、さらに@<code>{interface}も定義するケースが存在します。
 
-以下は前節で紹介した例です。
+次の例は前節で紹介したものです。
 //list[pospome_list21][funcを引数に指定することによって任意の処理を実行させる例]{
 package main
 
@@ -513,7 +513,7 @@ func NewHelloFunc() DoFunc {
 }
 //}
 
-@<code>{Do()}の引数を@<code>{interface}にすることで、以下のような@<code>{struct}を引数に指定することが可能になります。
+@<code>{Do()}の引数を@<code>{interface}にすることで、次のように@<code>{struct}を引数に指定することが可能になります。
 //list[pospome_list23][interfaceによってstructを引数に指定する]{
 type DoStruct {
 	X, Y int
@@ -540,7 +540,7 @@ func (x Xxx) Do() {
 }
 //}
 
-レシーバは@<code>{func}なので、以下のように@<code>{func}を実行する前後に特定の処理を差し込むことが可能です。以下は引数@<code>{userScore}に対するバリデーションをメソッドによって実装した例です。
+レシーバは@<code>{func}なので、@<code>{func}を実行する前後に特定の処理を差し込むことが可能です。次の例では引数@<code>{userScore}に対するバリデーションをメソッドによって実装しています。
 //list[pospome_list25][引数 userScore に対するバリデーションをメソッドによって実装]{
 package main
 
