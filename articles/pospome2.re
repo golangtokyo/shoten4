@@ -10,7 +10,7 @@
 GopherWalkerの内容と重複する部分もありますが、@<code>{func}という "処理" を表現するものならではの実装パターンになります。
 
 == func は値である
-Goでは、@<code>{func}を値として扱うことができます。以下は@<code>{func}である@<code>{EchoName()}を値として変数eに代入し、実行する例です。
+Goでは、@<code>{func}を値として扱うことができます。以下は@<code>{func}である@<code>{EchoName()}を値として変数@<code>{e}に代入し、実行する例です。
 //list[pospome_list1][EchoName() を値として変数eに代入し、実行する例]{
 package main
 
