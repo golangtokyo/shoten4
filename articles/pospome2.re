@@ -4,10 +4,10 @@
 
 //footnote[pospome_fn1][@<href>{https://twitter.com/pospome}]
 
-前回の GopherWalker では、"新しく型を定義することによって可能になる実装パターン" というタイトルで、主に@<code>{int},@<code>{string}などの "値を表現する型" に@<code>{type}を用いる実装パターンを紹介しました。
+技術書典3で頒布したGopherWalkerでは、"新しく型を定義することによって可能になる実装パターン" というタイトルで、主に@<code>{int},@<code>{string}などの "値を表現する型" に@<code>{type}を用いる実装パターンを紹介しました。
 
 今回はその続編ということで、@<code>{func}に@<code>{type}を用いる実装パターンを紹介します。
-前回の内容と重複する部分もありますが、@<code>{func}という "処理" を表現するものならではの実装パターンになります。
+GopherWalkerの内容と重複する部分もありますが、@<code>{func}という "処理" を表現するものならではの実装パターンになります。
 
 == func は値である
 Goでは、@<code>{func}を値として扱うことができます。以下は@<code>{func}である@<code>{EchoName()}を値として変数eに代入し、実行する例です。
