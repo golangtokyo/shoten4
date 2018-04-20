@@ -2,5 +2,6 @@ PREDEF:
   - preface.re
 CHAPS:
   - tenntenn.re
+  - hajimehoshi.re
 POSTDEF:
   - contributors.re
