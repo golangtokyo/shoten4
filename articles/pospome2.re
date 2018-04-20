@@ -409,7 +409,7 @@ func (h *Hello) Exec() {
 }
 //}
 
-上記の、@<code>{struct}は、@<code>{int}に変更することも可能です。
+@<list>{pospome_list18}の@<code>{Hello struct}は、@<code>{int}に変更することも可能です。
 //list[pospome_list][int+interfaceの例]{
 //int でも問題ない
 type Hello int
@@ -420,7 +420,7 @@ type Hello int
  * @<code>{interface}を実装する対象のtypeが機能しないのであれば、@<code>{func}を利用する。
  * @<code>{interface}を実装する対象のtypeが機能するのであれば、@<code>{interface}を利用する。
 
-上記の@<code>{struct}+@<code>{interface}の実装では、@<code>{Hello struct}がフィールドを持ちません。フィールドを持たない@<code>{struct}だからこそ、@<code>{struct}を@<code>{int}に変更しても特に問題が発生することはありません。@<code>{interface}を実装する対象の@<code>{type}は何でもいいのです。つまり、@<code>{struct}は機能していないことになります。@<code>{DoFunction interface}の@<code>{Exec()}は引数の値によって戻り値が決まる振る舞いなので、@<code>{interface}である必要がありません。こういった場合は@<code>{func}を利用して処理を差し替える方が適しているでしょう。
+@list{pospome_list18}では、@<code>{Hello struct}がフィールドを持ちません。フィールドを持たない@<code>{struct}だからこそ、@<code>{struct}を@<code>{int}に変更しても特に問題が発生することはありません。@<code>{interface}を実装する対象の@<code>{type}は何でもいいのです。つまり、@<code>{struct}は機能していないことになります。@<code>{DoFunction interface}の@<code>{Exec()}は引数の値によって戻り値が決まる振る舞いなので、@<code>{interface}である必要がありません。こういった場合は@<code>{func}を利用して処理を差し替える方が適しているでしょう。
 
 しかし、実際はそう簡単に判断できる問題ではありません。将来的な要件によって@<code>{interface}の方が適している場合もあるでしょうし、チームの方針、個人の好みもあるでしょう。使い分けの判断は難しいですが、 "なんとなくfuncにする" という個人の感覚による実装は避けましょう。感覚によって実装する癖が付いてしまうと、本来あるべき正しさを考えずにコードを書く癖が付いてしまいます。それを避けるためにも  "なぜそういった判断をしたのか?" だけは明確に説明できるようにしておきましょう。空の@<code>{struct}に@<code>{interface}を実装するコードを書こうとした時は一度立ち止まって考えてみることをおすすめします。
 
