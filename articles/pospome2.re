@@ -333,7 +333,7 @@ func NewEchoSomebody() EchoName {
  * EchoName には Pospome実装とSomebody実装の2つのみ提供されていること
  * 提供されている実装以外の実装が必要な場合、新規実装しなければいけないこと
 
-今回の例は@<code>{Do()},@<code>{EchoName}のように比較的抽象的だったので、あまりイメージできないかもしれませんが、以下のように具体的なロジックを表現する場合、単なる@<code>{func()}という定義よりも分かりやすくなるでしょう。
+例として挙げたコードは@<code>{Do()},@<code>{EchoName}のように比較的抽象的だったので、有効性がイメージできないかもしれませんが、以下のように具体的なロジックを表現する場合、単なる@<code>{func()}という定義よりも分かりやすくなるでしょう。
 //list[pospome_list16][ユーザーのスコア算出ロジックを切り替える例]{
 type UserScoreLogic func(userScore int) (totalScore int)
 
