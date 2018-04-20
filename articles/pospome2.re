@@ -81,7 +81,7 @@ func Do(f func()) {
 type MyEchoName func()
 //}
 
-以下のように@<code>{func}に引数と戻り値を指定することも可能です。
+次のように@<code>{func}に引数と戻り値を指定することも可能です。
 //list[pospome_list5][funcに引数と戻り値を指定する]{
 type MyEchoName func(id int) (int, error)
 //}
