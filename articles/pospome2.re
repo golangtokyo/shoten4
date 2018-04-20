@@ -9,9 +9,9 @@
 本章はその続編ということで、@<code>{func}に@<code>{type}を用いる実装パターンを紹介します。
 GopherWalkerの内容と重複する部分もありますが、@<code>{func}という "処理" を表現するものならではの実装パターンになります。
 
-== func は値である
-Goでは、@<code>{func}を値として扱うことができます。次の例では@<code>{func}である@<code>{EchoName()}を値として変数@<code>{e}に代入し、実行しています。
-//list[pospome_list1][EchoName() を値として変数eに代入し、実行する例]{
+== func を変数に代入し、実行する
+Goは@<code>{func}を変数に代入し、実行することができます。次の例では@<code>{func}である@<code>{EchoName()}を変数@<code>{e}に代入し、実行しています。
+//list[pospome_list1][EchoName() を変数eに代入し、実行する例]{
 package main
 
 import "fmt"
@@ -26,7 +26,7 @@ func EchoName() {
 }
 //}
 
-@<code>{func}は値なので、引数、戻り値に指定することが可能です。
+@<code>{func}は引数、戻り値に指定することが可能です。
 //list[pospome_list2][引数、戻り値にfuncを指定する例]{
 package main
 
@@ -424,7 +424,7 @@ type Hello int
 
 しかし、実際はそう簡単に判断できる問題ではありません。将来的な要件によって@<code>{interface}の方が適している場合もあるでしょうし、チームの方針、個人の好みもあるでしょう。使い分けの判断は難しいですが、 "なんとなくfuncにする" という個人の感覚による実装は避けましょう。感覚によって実装する癖が付いてしまうと、本来あるべき正しさを考えずにコードを書く癖が付いてしまいます。それを避けるためにも  "なぜそういった判断をしたのか?" だけは明確に説明できるようにしておきましょう。空の@<code>{struct}に@<code>{interface}を実装するコードを書こうとした時は一度立ち止まって考えてみることをおすすめします。
 
-ちなみに、@<code>{interface}には "複数の振る舞いを定義できる" という仕様がありますが、@<code>{func}は値なので複数定義することはできません。
+ちなみに、@<code>{interface}には "複数の振る舞いを定義できる" という仕様がありますが、@<code>{func}では振る舞いを複数定義することはできません。
 //list[pospome_list19][interfaceに複数の振る舞いを定義する]{
 type DBFunc interface {
 	Begin()
