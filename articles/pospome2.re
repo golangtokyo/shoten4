@@ -76,7 +76,7 @@ func Do(f func()) {
 //}
 
 == func に型を定義するとは?
-@<code>{func}は値なので型を定義できます。具体的には以下のように定義することができます。
+@<code>{func}には型を定義できます。具体的には次のように定義することができます。
 //list[pospome_list4][funcに対する定義]{
 type MyEchoName func()
 //}
