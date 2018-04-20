@@ -1,6 +1,6 @@
 = 続・新しく型を定義することによって可能になる実装パターン
 == はじめに
-メルカリのサーバサイドエンジニア@pospome@<fn>{pospome_fn1}です。普段は GCP + Go でサーバサイドの開発をしています。
+メルカリのバックエンドエンジニア@pospome@<fn>{pospome_fn1}です。普段は GCP + Go でサーバサイドの開発をしています。
 
 //footnote[pospome_fn1][@<href>{https://twitter.com/pospome}]
 
