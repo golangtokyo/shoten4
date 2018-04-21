@@ -1,6 +1,6 @@
 = 続・新しく型を定義することによって可能になる実装パターン
 == はじめに
-メルカリのバックエンドエンジニア@pospome@<fn>{pospome_fn1}です。普段は GCP + Go でサーバサイドの開発をしています。
+メルカリのバックエンドエンジニア@pospome@<fn>{pospome_fn1}です。普段はGCP+Goでサーバサイドの開発をしています。
 
 //footnote[pospome_fn1][@<href>{https://twitter.com/pospome}]
 
@@ -204,7 +204,7 @@ func Do() {
 
 しかし、次のケースでは引数に関数を指定して解決することが多いでしょう。
 
- * @<code>{if}の分岐パターンが予想できない場合 
+ * @<code>{if}の分岐パターンが予想できない場合
  * @<code>{Do()}の内部で分岐処理を書くと見通しが悪くなる場合
  * インターフェースで表現すると不自然になる場合
 
@@ -330,7 +330,7 @@ func NewEchoSomebody() EchoName {
 @<code>{EchoName}を定義し、それを生成する@<code>{NewEchoPospome()},@<code>{NewEchoSomebody()}を実装することで次の項目が明示的に表現できます。
 
  * @<code>{Do()}に指定する引数が@<code>{EchoName}であること
- * @<code>{EchoName}には Pospome実装とSomebody実装の2つのみ提供されていること
+ * @<code>{EchoName}にはPospome実装とSomebody実装の2つのみ提供されていること
  * 提供されている実装以外の実装が必要な場合、新規実装しなければいけないこと
 
 例として挙げたコードは@<code>{Do()},@<code>{EchoName}のように比較的抽象的だったので、有効性がイメージできないかもしれませんが、次のように具体的なロジックを表現する場合、単なる@<code>{func()}という定義よりも分かりやすくなるでしょう。
