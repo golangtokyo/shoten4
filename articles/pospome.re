@@ -381,8 +381,8 @@ func NewHelloFunc() DoFunc {
 }
 //}
 
-こういった"処理の差し替え"は、インターフェースを利用することでも実現できます。@<list>{pospome_list18}は構造体+インターフェースを組み合わせたものです。
-//list[pospome_list18][構造体+インターフェースの例]{
+こういった"処理の差し替え"は、インターフェースを利用することでも実現できます。@<list>{pospome_list18}は構造体とインターフェースを組み合わせたものです。
+//list[pospome_list18][構造体とインターフェースの例]{
 package main
 
 import "fmt"
@@ -410,7 +410,7 @@ func (h *Hello) Exec() {
 //}
 
 @<list>{pospome_list18}の@<code>{Hello struct}は、@<code>{int}に変更することも可能です。
-//list[pospome_list][int+インターフェースの例]{
+//list[pospome_list][intとインターフェースの例]{
 //int でも問題ない
 type Hello int
 //}
