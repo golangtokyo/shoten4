@@ -2,5 +2,6 @@ PREDEF:
   - preface.re
 CHAPS:
   - tenntenn.re
+  - womenwhogotokyo.re
 POSTDEF:
   - contributors.re
