@@ -35,7 +35,7 @@ $ tree $(go env GOCACHE)
 ├── ff
 ├── log.txt
 └── trim.txt
-}//
+//}
 
 なお、これは単純にビルド成果物だけをキャッシュしているわけではなく、
 
@@ -65,7 +65,7 @@ version 5
 ^L^N^P^R^L^T^V^R^L^X^Z^B^Qconfig.go^UConfigState^@^U^N
 
 //省略
-}//
+//}
 
 ビルド時には固有のIDが振られ、キャッシュ取得時にはそのIDをベースに最終ビルド時点でキャッシュされているかを判別します。
 また、実行時のオプションを変えたり、依存パッケージが増えたりした場合はキャッシュが更新されるようになっています。
@@ -105,7 +105,7 @@ func init() {
 		//省略
 	}
 }
-}//
+//}
 
 === 実行オプションを取得する
 
@@ -147,7 +147,7 @@ func (c *runCache) tryCacheWithID(b *work.Builder, a *work.Action, id string) bo
 	}
 	//省略
 }
-}//
+//}
 
 === キャッシュの存在確認をする
 
@@ -177,7 +177,7 @@ func DefaultDir() string {
 	}
 	return filepath.Join(dir, "go-build")
 }
-}//
+//}
 
 === キャッシュを読み取る
 
@@ -204,7 +204,7 @@ func initDefaultCache() {
 	// 取得したキャッシュをdefaultCacheに一度だけ代入する
 	defaultCache = c
 }
-}//
+//}
 
 ここで呼び出されたキャッシュのファイルの中身を、テスト実行時の出力結果として用いたり、ビルド時の成果物としてそのまま利用します。
 例えば以下の@<list>{read_build_cache}では、キャッシュが存在していれば過去のビルド成果物のヘッダー情報を読み取り、ファイル内容をビルド結果として利用します。
@@ -237,7 +237,7 @@ if c := cache.Default(); c != nil {
     }
   }
   // 省略
-}//
+//}
 
 === キャッシュを作成する
 
@@ -268,7 +268,7 @@ if c := cache.Default(); c != nil && a.Mode == "build" {
 
 //list[test_cache][テストキャッシュの作成]{
 func (c *runCache) saveOutput(a *work.Action) {
-	// 省略
+	//省略
 	if c.id1 != (cache.ActionID{}) {
 		if cache.DebugTest {
 			fmt.Fprintf(os.Stderr, "testcache: %s: save test ID %x => input ID %x => %x\n", a.Package.ImportPath, c.id1, testInputsID, testAndInputKey(c.id1, testInputsID))
@@ -284,7 +284,7 @@ func (c *runCache) saveOutput(a *work.Action) {
 		cache.Default().PutNoVerify(testAndInputKey(c.id2, testInputsID), bytes.NewReader(a.TestOutput.Bytes()))
 	}
 }
-}//
+//}
 
 == おわりに
 
