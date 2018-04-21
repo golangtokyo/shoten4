@@ -3,5 +3,6 @@ PREDEF:
 CHAPS:
   - tenntenn.re
   - hajimehoshi.re
+  - timakin.re
 POSTDEF:
   - contributors.re
