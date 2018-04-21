@@ -17,12 +17,12 @@ package main
 import "fmt"
 
 func main() {
-	e := EchoName
-	e() //pospome
+  e := EchoName
+  e() //pospome
 }
 
 func EchoName() {
-	fmt.Println("pospome")
+  fmt.Println("pospome")
 }
 //}
 
@@ -33,16 +33,16 @@ package main
 import "fmt"
 
 func main() {
-	f := Do(EchoName)
-	f() //pospome
+  f := Do(EchoName)
+  f() //pospome
 }
 
 func EchoName() {
-	fmt.Println("pospome")
+  fmt.Println("pospome")
 }
 
 func Do(f func()) func() {
-	return f
+  return f
 }
 //}
 
@@ -53,25 +53,25 @@ package main
 import "fmt"
 
 func main() {
-	f1 := EchoName
-
-	//無名関数として定義することもできる。
-	f2 := func() {
-		fmt.Print("not pospome")
-	}
-
-	Do(f1) //logic1,pospome,logic2
-	Do(f2) //logic1,not pospome,logic2
+  f1 := EchoName
+  
+  //無名関数として定義することもできる。
+  f2 := func() {
+  	fmt.Print("not pospome")
+  }
+  
+  Do(f1) //logic1,pospome,logic2
+  Do(f2) //logic1,not pospome,logic2
 }
 
 func EchoName() {
-	fmt.Print("pospome")
+  fmt.Print("pospome")
 }
 
 func Do(f func()) {
-	fmt.Print("logic1,")
-	f()
-	fmt.Println(",logic2")
+  fmt.Print("logic1,")
+  f()
+  fmt.Println(",logic2")
 }
 //}
 
@@ -103,15 +103,15 @@ package main
 import "fmt"
 
 func main() {
-	e := EchoName
-	m := MyEchoName(e)
-	m() //pospome
+  e := EchoName
+  m := MyEchoName(e)
+  m() //pospome
 }
 
 type MyEchoName func()
 
 func EchoName() {
-	fmt.Println("pospome")
+  fmt.Println("pospome")
 }
 //}
 
@@ -123,19 +123,19 @@ package main
 import "fmt"
 
 func main() {
-	e := EchoName
-	m := MyEchoName(e)
-	m.DoSomething() //DoSomething
+  e := EchoName
+  m := MyEchoName(e)
+  m.DoSomething() //DoSomething
 }
 
 type MyEchoName func()
 
 func (e MyEchoName) DoSomething() {
-	fmt.Print("DoSomething")
+  fmt.Print("DoSomething")
 }
 
 func EchoName() {
-	fmt.Print("pospome")
+  fmt.Print("pospome")
 }
 //}
 
@@ -149,27 +149,27 @@ package main
 import "fmt"
 
 func main() {
-	e := EchoName
-	m := MyEchoName(e)
-	Do(m)
+  e := EchoName
+  m := MyEchoName(e)
+  Do(m)
 }
 
 type XxxInterface interface {
-	Xxx()
+  Xxx()
 }
 
 type MyEchoName func()
 
 func (e MyEchoName) Xxx() {
-	fmt.Print("Xxx")
+  fmt.Print("Xxx")
 }
 
 func EchoName() {
-	fmt.Print("pospome")
+  fmt.Print("pospome")
 }
 
 func Do(x XxxInterface) {
-	x.Xxx()
+  x.Xxx()
 }
 //}
 
@@ -178,27 +178,27 @@ func Do(x XxxInterface) {
 仕様が複雑なWebサービスのアプリケーションコードにおいて、"一部だけ処理の流れが違う"というケースはよくあるのではないでしょうか?
 //list[pospome_list9][一部だけ処理の流れが違う例]{
 func Do() {
-	//前半の処理は常に同じ
-
-	//途中の処理だけ常に同じとは限らない
-
-	//後半の処理も常に同じ
+  //前半の処理は常に同じ
+  
+  //途中の処理だけ常に同じとは限らない
+  
+  //後半の処理も常に同じ
 }
 //}
 
 この場合、@<list>{pospome_list10}のように@<code>{if}を利用して解決することができます。
 //list[pospome_list10][一部だけ処理の流れが違うケースに対してifで解決する]{
 func Do() {
-	//前半の処理は常に同じ
-
-	//途中の処理だけ常に同じとは限らない
-	if xxx {
-		//省略
-	} else {
-		//省略
-	}
-
-	//後半の処理も常に同じ
+  //前半の処理は常に同じ
+  
+  //途中の処理だけ常に同じとは限らない
+  if xxx {
+  	//省略
+  } else {
+  	//省略
+  }
+  
+  //後半の処理も常に同じ
 }
 //}
 
@@ -210,12 +210,12 @@ func Do() {
 
 //list[pospome_list11][引数に関数を指定して解決する]{
 func Do(f func()) {
-	//前半の処理は常に同じ
-
-	//途中の処理だけ常に同じとは限らない
-	f()
-
-	//後半の処理も常に同じ
+  //前半の処理は常に同じ
+  
+  //途中の処理だけ常に同じとは限らない
+  f()
+  
+  //後半の処理も常に同じ
 }
 //}
 
@@ -226,20 +226,20 @@ package main
 import "fmt"
 
 func main() {
-	//無名関数として定義する
-	f := func() {
-		fmt.Println("pospome")
-	}
-	Do(f)
+  //無名関数として定義する
+  f := func() {
+  	fmt.Println("pospome")
+  }
+  Do(f)
 }
 
 func Do(f func()) {
-	//前半の処理はいつも同じ
-
-	//途中の処理だけ常に同じとは限らない
-	f()
-
-	//後半の処理もいつも同じ
+  //前半の処理はいつも同じ
+  
+  //途中の処理だけ常に同じとは限らない
+  f()
+  
+  //後半の処理もいつも同じ
 }
 //}
 
@@ -252,23 +252,23 @@ package main
 import "fmt"
 
 func main() {
-	e := EchoName
-	Do(e)
+  e := EchoName
+  Do(e)
 }
 
 func Do(f func()) {
-	//前半の処理はいつも同じ
-
-	//途中の処理だけ同じとは限らないので引数で渡される f を利用する
-	f()
-
-	//後半の処理もいつも同じ
+  //前半の処理はいつも同じ
+  
+  //途中の処理だけ同じとは限らないので引数で渡される f を利用する
+  f()
+  
+  //後半の処理もいつも同じ
 }
 
 //関数名で具体的な処理を表現できる。
 //他の箇所で使い回すことができる。
 func EchoName() {
-	fmt.Println("pospome")
+  fmt.Println("pospome")
 }
 //}
 
@@ -277,12 +277,12 @@ func EchoName() {
 これで解決したように見えますが、まだ1つだけ問題が残っています。それは"引数に何を指定するか分かりづらい"という点です。@<list>{pospome_list14}では@<code>{Do()}の引数は@<code>{func()}です。
 //list[pospome_list14][引数が関数に何を指定するか分かりづらい]{
 func Do(f func()) {
-	//前半の処理はいつも同じ
-
-	//途中の処理だけ同じとは限らないので引数で渡される f を利用する
-	f()
-
-	//後半の処理もいつも同じ
+  //前半の処理はいつも同じ
+  
+  //途中の処理だけ同じとは限らないので引数で渡される f を利用する
+  f()
+  
+  //後半の処理もいつも同じ
 }
 //}
 
@@ -295,35 +295,35 @@ package main
 import "fmt"
 
 func main() {
-	p := NewEchoPospome()
-	Do(p)
+  p := NewEchoPospome()
+  Do(p)
 }
 
 func Do(e EchoName) {
-	//前半の処理はいつも同じ
-
-	//途中の処理だけ同じとは限らないので引数で渡される f を利用する
-	e()
-
-	//後半の処理もいつも同じ
+  //前半の処理はいつも同じ
+  
+  //途中の処理だけ同じとは限らないので引数で渡される f を利用する
+  e()
+  
+  //後半の処理もいつも同じ
 }
 
 type EchoName func()
 
 //pospome用の実装
 func NewEchoPospome() EchoName {
-	f := func() {
-		fmt.Println("pospome")
-	}
-	return EchoName(f)
+  f := func() {
+  	fmt.Println("pospome")
+  }
+  return EchoName(f)
 }
 
 //他の人用の実装
 func NewEchoSomebody() EchoName {
-	f := func() {
-		fmt.Println("somebody")
-	}
-	return EchoName(f)
+  f := func() {
+  	fmt.Println("somebody")
+  }
+  return EchoName(f)
 }
 //}
 
@@ -338,11 +338,11 @@ func NewEchoSomebody() EchoName {
 type UserScoreLogic func(userScore int) (totalScore int)
 
 func NewNormalUserLogic() UserScoreLogic {
-	//省略
+  //省略
 }
 
 func NewSpecialUserLogic() UserScoreLogic {
-	//省略
+  //省略
 }
 
 //ユーザーの score 算出ロジックを切り替えられることが分かる。
@@ -364,20 +364,20 @@ package main
 import "fmt"
 
 func main() {
-	Do(NewHelloFunc())
+  Do(NewHelloFunc())
 }
 
 func Do(f DoFunc) {
-	f()
+  f()
 }
 
 type DoFunc func()
 
 func NewHelloFunc() DoFunc {
-	f := func(){
-		fmt.Println("hello")
-	}
-	return DoFunc(f)
+  f := func(){
+  	fmt.Println("hello")
+  }
+  return DoFunc(f)
 }
 //}
 
@@ -388,16 +388,16 @@ package main
 import "fmt"
 
 func main() {
-	h := &Hello{}
-	Do(h)
+  h := &Hello{}
+  Do(h)
 }
 
 func Do(f DoFunction) {
-	f.Exec()
+  f.Exec()
 }
 
 type DoFunction interface {
-	Exec()
+  Exec()
 }
 
 //フィールドを持たない構造体になる
@@ -405,7 +405,7 @@ type Hello struct {
 }
 
 func (h *Hello) Exec() {
-	fmt.Println("hello")
+  fmt.Println("hello")
 }
 //}
 
@@ -427,18 +427,18 @@ type Hello int
 ちなみに、インターフェースには"複数の振る舞いを定義できる"という仕様がありますが、関数では振る舞いを複数定義することはできません。
 //list[pospome_list19][インターフェースに複数の振る舞いを定義する]{
 type DBFunc interface {
-	Begin()
-	Commit()
-	Rollback()
+  Begin()
+  Commit()
+  Rollback()
 }
 //}
 
 これは@<list>{pospome_list20}のように関数を束ねる構造体を用意することで解決できます。
 //list[pospome_list20][関数を束ねる構造体を用意する]{
 type DBFunc struct {
-	Begin Begin
-	Commit Commit
-	Rollback Rollback
+  Begin Begin
+  Commit Commit
+  Rollback Rollback
 }
 
 type Begin func()
@@ -459,19 +459,19 @@ package main
 import "fmt"
 
 func main() {
-	Do(NewHelloFunc())
+  Do(NewHelloFunc())
 }
 
 func Do(f DoFunc) {
-	f()
+  f()
 }
 
 type DoFunc func()
 
 func NewHelloFunc() DoFunc {
-	return func(){
-		fmt.Println("hello")
-	}
+  return func(){
+  	fmt.Println("hello")
+  }
 }
 //}
 
@@ -484,44 +484,44 @@ package main
 import "fmt"
 
 func main() {
-	//ここのコードは修正不要
-	Do(NewHelloFunc())
+  //ここのコードは修正不要
+  Do(NewHelloFunc())
 }
 
 //引数を DoInterface に変更
 func Do(d DoInterface) {
-	d.Call()
+  d.Call()
 }
 
 type DoInterface interface {
-	Call()
+  Call()
 }
 
 type DoFunc func()
 
 // DoFunc を実行するだけのメソッド
 func (d DoFunc) Call() {
-	d()
+  d()
 }
 
 //ここの戻り値は DoFunc のままでOK
 func NewHelloFunc() DoFunc {
-	f := func(){
-		fmt.Println("hello")
-	}
-	return DoFunc(f)
+  f := func(){
+  	fmt.Println("hello")
+  }
+  return DoFunc(f)
 }
 //}
 
 @<code>{Do()}の引数をインターフェースにすることで、@<list>{pospome_list23}のような構造体を引数に指定することが可能になります。
 //list[pospome_list23][インターフェースに指定可能な構造体]{
 type DoStruct {
-	X, Y int
+  X, Y int
 }
 
 func (d DoStruct) Call() {
-	fmt.Println(d.X)
-	fmt.Println(d.Y)
+  fmt.Println(d.X)
+  fmt.Println(d.Y)
 }
 //}
 
@@ -547,32 +547,32 @@ package main
 import "fmt"
 
 func main() {
-	userScore := 100
-
-	c := NewTotalCalcScore()
-
-	fmt.Println(c(userScore)) //100
-	fmt.Println(c.WithValidation(userScore))//100
-
-	userScore = 0
-	fmt.Println(c.WithValidation(userScore))//panic: score = 0
+  userScore := 100
+  
+  c := NewTotalCalcScore()
+  
+  fmt.Println(c(userScore)) //100
+  fmt.Println(c.WithValidation(userScore))//100
+  
+  userScore = 0
+  fmt.Println(c.WithValidation(userScore))//panic: score = 0
 }
 
 type CalcTotalScore func(userScore int) (totalScore int)
 
 func NewTotalCalcScore() CalcTotalScore {
-	f := func(userScore int) (totalScore int) {
-		//計算ロジックが実装されている想定
-		return userScore
-	}
-	return CalcTotalScore(f)
+  f := func(userScore int) (totalScore int) {
+  	//計算ロジックが実装されている想定
+  	return userScore
+  }
+  return CalcTotalScore(f)
 }
 
 func (c CalcTotalScore) WithValidation(userScore int) (totalScore int) {
-	if userScore == 0 {
-		panic("score = 0")
-	}
-	return c(userScore)
+  if userScore == 0 {
+  	panic("score = 0")
+  }
+  return c(userScore)
 }
 //}
 
