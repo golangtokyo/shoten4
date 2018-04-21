@@ -113,7 +113,7 @@ func init() {
 Goのテストに付随する内部パッケージで@<code>{TryCache}というメソッドがあります。
 この中で、@<list>{option_list}のような処理で、引数に指定されたコマンドオプションがキャッシュに利用可能なものかどうか判別しています。
 
-//list[cmd_init][コマンドの初期化]{
+//list[option_list][オプションのフィルタリング]{
 func (c *runCache) tryCacheWithID(b *work.Builder, a *work.Action, id string) bool {
 	//省略
 
@@ -170,7 +170,7 @@ func DefaultDir() string {
 	case "plan9":
 		dir = os.Getenv("home")
 		//省略
-		
+
 	default: // Unix
 		dir = os.Getenv("XDG_CACHE_HOME")
 		//省略
