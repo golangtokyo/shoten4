@@ -3,6 +3,6 @@ PREDEF:
 CHAPS:
   - tenntenn.re
   - hajimehoshi.re
-  - pospome2.re
+  - pospome.re
 POSTDEF:
   - contributors.re
