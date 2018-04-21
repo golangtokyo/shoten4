@@ -291,9 +291,10 @@ Women Who Go Tokyoは、Goに興味があり、学びたいと思っている女
 
 === Goの"Code of Conduct"について
 Goのコミュニティには"Code of Conduct(行動指針)"@<fn>{conduct_fn1}があります。
-これはさまざまなバックグラウンドを持つGopherが効率的・生産的かつ礼節を持って議論できるよう定められているものです。
+これはさまざまなバックグラウンドを持つGopher@<fn>{gopher_fn1}が効率的・生産的かつ礼節を持って議論できるよう定められているものです。
 
 //footnote[conduct_fn1][@<href>{https://golang.org/conduct}]
+//footnote[gopher_fn1][ここでは、Goを扱う人のこと]
 
 ここでは"Gopher Value(Goコミュニティの目指すべき価値観)"として6つの項目が挙げられています。
 
