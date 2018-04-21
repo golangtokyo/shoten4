@@ -11,7 +11,7 @@
 == 自動キャッシュ機構の概要
 
 この節では、キャッシュ機構の概要を見ていきましょう。Go1.10から、Goは@<code>{go build}コマンド、あるいは@<code>{go test}コマンド時に、自動で実行時キャッシュを作成してくれるようになりました。
-コマンドを実行すると、<code>{GOCACHE}という環境変数に指定されたディレクトリに、<code>{sha256}で暗号化されたビルド情報を@<list>{cached_list}のように記録しています。
+コマンドを実行すると、@<code>{GOCACHE}という環境変数に指定されたディレクトリに、@<code>{sha256}で暗号化されたビルド情報を@<list>{cached_list}のように記録しています。
 
 //list[cached_list][キャッシュ成果物のリストの例]{
 $ tree $(go env GOCACHE)
@@ -39,15 +39,16 @@ $ tree $(go env GOCACHE)
 
 なお、これは単純にビルド成果物だけをキャッシュしているわけではなく、
 
-* 何をビルドしたのか
-* 何をテストしたのか
-* どんなオプションをコマンドに付与したのか
+ * 何をビルドしたのか
+ * 何をテストしたのか
+ * どんなオプションをコマンドに付与したのか
 
 という情報をキャッシュしています。実際に@<list>{artifact}のような、ビルド時に作成されたキャッシュを出力することもできます。
 
 
 //list[artifact][キャッシュ成果物]{
-$ more $(go env GOCACHE)/03/03045cb46e286224612c2292a102928dcb89cf7d2a6c72d4c0df57c7b1454534-d
+$ more $(go env GOCACHE)/03/\
+03045cb46e286224612c2292a102928dcb89cf7d2a6c72d4c0df57c7b1454534-d
 
 !<arch>
 __.PKGDEF       0           0     0     644     6225      `
@@ -60,7 +61,9 @@ build id "B9jegu8hj7CxM9O-Kgnh/PNi0GAC_RLtwZahEaU3j"
 $$B
 version 5
 
-^@^B^A^Gspew^@^C^?>#^@  UsersESCtakahashiseiji^Cgo^Esrc^Sgithub.com^Mtimakin^Mgonvert^Kvendor^L^Ostretchr^Mtestify^R^L^Mdavecgh^Mgo-spew^B
+^@^B^A^Gspew^@^C^?>#^@  UsersESCtakahashiseiji^Cgo
+^Esrc^Sgithub.com^Mtimakin^Mgonvert^Kvendor^L
+^Ostretchr^Mtestify^R^L^Mdavecgh^Mgo-spew^B
 ^Qbypass.goESCUnsafeDisabled^@(!^E^M^?J#^@^D^F^H
 ^L^N^P^R^L^T^V^R^L^X^Z^B^Qconfig.go^UConfigState^@^U^N
 
@@ -74,12 +77,12 @@ version 5
 また、テスト時にも同様にキャッシュが行われます。こちらは有効期限がファイルに保存され、コマンドオプションによってはキャッシュが無効になってしまします。
 キャッシュが有効となる@<code>{go test}コマンドのオプションは、以下の通りです。
 
-* -cpu
-* -list
-* -parallel
-* -run
-* -short
-* -v
+ * -cpu
+ * -list
+ * -parallel
+ * -run
+ * -short
+ * -v
 
 これらのオプションの共通点は、実行のたびに結果が変わらない、ということです。
 逆に、実行のたびに結果が変わるようなオプションは、@<code>{-bench}、@<code>{-cpuprofile}などの計測する類の実行オプションを指します。
@@ -97,13 +100,13 @@ Goのコマンドとして登録されているのは、利用方法やフラグ
 
 //list[cmd_init][コマンドの初期化]{
 func init() {
-	base.Commands = []*base.Command{
-		//省略
-		work.CmdBuild,
-		//省略
-		test.CmdTest,
-		//省略
-	}
+  base.Commands = []*base.Command{
+    //省略
+    work.CmdBuild,
+    //省略
+    test.CmdTest,
+    //省略
+  }
 }
 //}
 
@@ -114,38 +117,45 @@ Goのテストに付随する内部パッケージで@<code>{TryCache}という�
 この中で、@<list>{option_list}のような処理で、引数に指定されたコマンドオプションがキャッシュに利用可能なものかどうか判別しています。
 
 //list[option_list][オプションのフィルタリング]{
-func (c *runCache) tryCacheWithID(b *work.Builder, a *work.Action, id string) bool {
-	//省略
+func (c *runCache) tryCacheWithID(
+	b *work.Builder, a *work.Action, id string,
+) bool {
+  //省略
 
-	var cacheArgs []string
-	for _, arg := range testArgs {
-		//省略
-		switch arg[:i] {
-		case "-test.cpu",
-			"-test.list",
-			"-test.parallel",
-			"-test.run",
-			"-test.short",
-			"-test.v":
-			// These are cacheable.
-			// Note that this list is documented above,
-			// so if you add to this list, update the docs too.
-			cacheArgs = append(cacheArgs, arg)
+  var cacheArgs []string
+  for _, arg := range testArgs {
+    //省略
+    switch arg[:i] {
+    case "-test.cpu",
+      "-test.list",
+      "-test.parallel",
+      "-test.run",
+      "-test.short",
+      "-test.v":
+      // These are cacheable.
+      // Note that this list is documented above,
+      // so if you add to this list, update the docs too.
+      cacheArgs = append(cacheArgs, arg)
 
-		case "-test.timeout":
-			// Special case: this is cacheable but ignored during the hash.
-			// Do not add to cacheArgs.
+    case "-test.timeout":
+      // Special case: this is cacheable 
+      // but ignored during the hash.
+      // Do not add to cacheArgs.
 
-		default:
-			// nothing else is cacheable
-			if cache.DebugTest {
-				fmt.Fprintf(os.Stderr, "testcache: caching disabled for test argument: %s\n", arg)
-			}
-			c.disableCache = true
-			return false
-		}
-	}
-	//省略
+    default:
+      // nothing else is cacheable
+      if cache.DebugTest {
+        fmt.Fprintf(
+          os.Stderr, 
+          "testcache: caching disabled for test argument: %s\n", 
+          arg,
+        )
+      }
+      c.disableCache = true
+      return false
+    }
+  }
+  //省略
 }
 //}
 
@@ -157,25 +167,25 @@ func (c *runCache) tryCacheWithID(b *work.Builder, a *work.Action, id string) bo
 
 //list[default_dir][OS別キャッシュ保存先]{
 func DefaultDir() string {
-	// 省略
-	switch runtime.GOOS {
-	case "windows":
-		dir = os.Getenv("LocalAppData")
-		//省略
+  // 省略
+  switch runtime.GOOS {
+  case "windows":
+    dir = os.Getenv("LocalAppData")
+    //省略
 
-	case "darwin":
-		dir = os.Getenv("HOME")
-		//省略
+  case "darwin":
+    dir = os.Getenv("HOME")
+    //省略
 
-	case "plan9":
-		dir = os.Getenv("home")
-		//省略
+  case "plan9":
+    dir = os.Getenv("home")
+    //省略
 
-	default: // Unix
-		dir = os.Getenv("XDG_CACHE_HOME")
-		//省略
-	}
-	return filepath.Join(dir, "go-build")
+  default: // Unix
+    dir = os.Getenv("XDG_CACHE_HOME")
+    //省略
+  }
+  return filepath.Join(dir, "go-build")
 }
 //}
 
@@ -187,22 +197,22 @@ func DefaultDir() string {
 //list[default_once][キャッシュの読み取り処理]{
 // Default returns the default cache to use, or nil if no cache should be used.
 func Default() *Cache {
-	defaultOnce.Do(initDefaultCache)
-	return defaultCache
+  defaultOnce.Do(initDefaultCache)
+  return defaultCache
 }
 
 var (
-	defaultOnce  sync.Once
-	defaultCache *Cache
+  defaultOnce  sync.Once
+  defaultCache *Cache
 )
 
 // initDefaultCache does the work of finding the default cache
 // the first time Default is called.
 func initDefaultCache() {
-	dir := DefaultDir()
-	// 省略
-	// 取得したキャッシュをdefaultCacheに一度だけ代入する
-	defaultCache = c
+  dir := DefaultDir()
+  // 省略
+  // 取得したキャッシュをdefaultCacheに一度だけ代入する
+  defaultCache = c
 }
 //}
 
@@ -222,7 +232,12 @@ if c := cache.Default(); c != nil {
         if err == nil {
           if len(stdout) > 0 {
             if cfg.BuildX || cfg.BuildN {
-              b.Showcmd("", "%s  # internal", joinUnambiguously(str.StringList("cat", c.OutputFile(stdoutEntry.OutputID))))
+              b.Showcmd("", "%s  # internal", joinUnambiguously(
+				str.StringList(
+				  "cat", 
+				  c.OutputFile(stdoutEntry.OutputID)),
+				),
+			  )
             }
             if !cfg.BuildN {
               b.Print(string(stdout))
@@ -253,7 +268,9 @@ if c := cache.Default(); c != nil && a.Mode == "build" {
     }
     outputID, _, err := c.Put(a.actionID, r)
     if err == nil && cfg.BuildX {
-      b.Showcmd("", "%s # internal", joinUnambiguously(str.StringList("cp", target, c.OutputFile(outputID))))
+      b.Showcmd("", "%s # internal", joinUnambiguously(
+		str.StringList("cp", target, c.OutputFile(outputID))),
+	  )
     }
     c.PutBytes(cache.Subkey(a.actionID, "stdout"), a.output)
     r.Close()
@@ -268,21 +285,38 @@ if c := cache.Default(); c != nil && a.Mode == "build" {
 
 //list[test_cache][テストキャッシュの作成]{
 func (c *runCache) saveOutput(a *work.Action) {
-	//省略
-	if c.id1 != (cache.ActionID{}) {
-		if cache.DebugTest {
-			fmt.Fprintf(os.Stderr, "testcache: %s: save test ID %x => input ID %x => %x\n", a.Package.ImportPath, c.id1, testInputsID, testAndInputKey(c.id1, testInputsID))
-		}
-		cache.Default().PutNoVerify(c.id1, bytes.NewReader(testlog))
-		cache.Default().PutNoVerify(testAndInputKey(c.id1, testInputsID), bytes.NewReader(a.TestOutput.Bytes()))
-	}
-	if c.id2 != (cache.ActionID{}) {
-		if cache.DebugTest {
-			fmt.Fprintf(os.Stderr, "testcache: %s: save test ID %x => input ID %x => %x\n", a.Package.ImportPath, c.id2, testInputsID, testAndInputKey(c.id2, testInputsID))
-		}
-		cache.Default().PutNoVerify(c.id2, bytes.NewReader(testlog))
-		cache.Default().PutNoVerify(testAndInputKey(c.id2, testInputsID), bytes.NewReader(a.TestOutput.Bytes()))
-	}
+  //省略
+  if c.id1 != (cache.ActionID{}) {
+    if cache.DebugTest {
+      fmt.Fprintf(
+        os.Stderr, 
+        "testcache: %s: save test ID %x => input ID %x => %x\n", 
+        a.Package.ImportPath, 
+        c.id1, 
+        testInputsID, 
+        testAndInputKey(c.id1, testInputsID),
+      )
+    }
+    cache.Default().PutNoVerify(c.id1, bytes.NewReader(testlog))
+    cache.Default().PutNoVerify(
+      testAndInputKey(c.id1, testInputsID), bytes.NewReader(a.TestOutput.Bytes()),
+    )
+  }
+  if c.id2 != (cache.ActionID{}) {
+    if cache.DebugTest {
+      fmt.Fprintf(
+        os.Stderr, 
+        "testcache: %s: save test ID %x => input ID %x => %x\n", 
+        a.Package.ImportPath, 
+        c.id2, 
+        testInputsID, testAndInputKey(c.id2, testInputsID),
+      )
+    }
+    cache.Default().PutNoVerify(c.id2, bytes.NewReader(testlog))
+    cache.Default().PutNoVerify(
+      testAndInputKey(c.id2, testInputsID), bytes.NewReader(a.TestOutput.Bytes()),
+    )
+  }
 }
 //}
 
