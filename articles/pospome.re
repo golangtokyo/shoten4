@@ -18,7 +18,7 @@ import "fmt"
 
 func main() {
   e := EchoName
-  e() //pospome
+  e() //pospome を表示される
 }
 
 func EchoName() {
@@ -34,7 +34,7 @@ import "fmt"
 
 func main() {
   f := Do(EchoName)
-  f() //pospome
+  f() //pospome と表示される
 }
 
 func EchoName() {
@@ -60,8 +60,8 @@ func main() {
   	fmt.Print("not pospome")
   }
   
-  Do(f1) //logic1,pospome,logic2
-  Do(f2) //logic1,not pospome,logic2
+  Do(f1) //logic1,pospome,logic2 と表示される
+  Do(f2) //logic1,not pospome,logic2 と表示される
 }
 
 func EchoName() {
@@ -105,7 +105,7 @@ import "fmt"
 func main() {
   e := EchoName
   m := MyEchoName(e)
-  m() //pospome
+  m() //pospome と表示される
 }
 
 type MyEchoName func()
@@ -125,7 +125,7 @@ import "fmt"
 func main() {
   e := EchoName
   m := MyEchoName(e)
-  m.DoSomething() //DoSomething
+  m.DoSomething() //DoSomething と表示される
 }
 
 type MyEchoName func()
@@ -551,11 +551,11 @@ func main() {
   
   c := NewTotalCalcScore()
   
-  fmt.Println(c(userScore)) //100
-  fmt.Println(c.WithValidation(userScore))//100
+  fmt.Println(c(userScore)) //100 と表示される
+  fmt.Println(c.WithValidation(userScore))//100 と表示される
   
   userScore = 0
-  fmt.Println(c.WithValidation(userScore))//panic: score = 0
+  fmt.Println(c.WithValidation(userScore))//panic: score = 0 と表示される
 }
 
 type CalcTotalScore func(userScore int) (totalScore int)
