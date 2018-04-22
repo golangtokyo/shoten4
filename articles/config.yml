@@ -17,13 +17,13 @@ review_version: 2.0
 # inherit: ["A.yml", "B.yml"]
 
 # ブック名(ファイル名になるもの。ASCII範囲の文字を使用)
-bookname: TBD
+bookname: golangtokyo_shoten4
 # 記述言語。省略した場合はja
 language: ja
 
 # 書名
 # 読みを入れる例 booktitle: {name: "Re:VIEW EPUBサンプル", file-as: "リビューイーパブサンプル"}
-booktitle: タイトル未定
+booktitle: Gopherの休日
 
 # 著者名。「, 」で区切って複数指定できる
 # 読みを入れる例 aut: [{name: "青木峰郎", file-as: "アオキミネロウ"}, {name: "武藤健志", file-as: "ムトウケンシ"}, {name: "高橋征義", file-as: "タカハシマサヨシ"}, {name: "角征典", file-as: "カドマサノリ"}]
@@ -88,7 +88,7 @@ rights: (C) 2018 golang.tokyo
 debug: null
 
 # 固有IDに使用するドメイン。指定しない場合には、時刻に基づくランダムUUIDが入る
-urnid: urn:uid:https://github.com/golangtokyo/gopherwalker
+urnid: urn:uid:https://github.com/golangtokyo/shoten4
 #
 # ISBN。省略した場合はurnidが入る
 # isbn: null
@@ -134,7 +134,7 @@ toc: true
 # cover: null
 #
 # 表紙に配置し、書籍の影絵にも利用する画像ファイル。省略した場合はnull (画像を使わない)。画像ディレクトリ内に置いてもディレクトリ名は不要(例: cover.jpg)
-# coverimage: cover.jpg
+#coverimage: cover.jpg
 #
 # 表紙の後に大扉ページを作成するか。省略した場合はnull (作成しない)
 titlepage: true
